@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Profile
+  m_EditorClassIdentifier: 
+  m_GroupName: Profile
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5187b88da702043e4a39d98bb27760b7
+  m_SerializeEntries:
+  - m_GUID: 4a2aaa604259d4384892be414a357922
+    m_Address: Assets/Scenes/ProfileScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f8c3cb07c02441d3ad81fd57aa518b0
+    m_Address: Assets/Prefabs/Cube.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 88a4d66ad37834c2baf1d7b32ff85bf8, type: 2}
+    - {fileID: 11400000, guid: 4ea173d72592e40c0bdc02c19ecc5800, type: 2}

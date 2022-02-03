@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Home
+  m_EditorClassIdentifier: 
+  m_GroupName: Home
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5ec2e9285c6b546eea94bcc8f4ca77ee
+  m_SerializeEntries:
+  - m_GUID: 35e3933a7ec7b492c8a8eb438e31d9ff
+    m_Address: Assets/Scenes/HomeScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 929c71cf6596c45f6a692437b74c20ec
+    m_Address: Assets/Prefabs/HomeSphere.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3912a2d049b4548729ff62f90abaf3ca, type: 2}
+    - {fileID: 11400000, guid: 489927719237744169708de44fd30ae2, type: 2}

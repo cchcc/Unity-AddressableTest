@@ -1,39 +1,69 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class Entry : MonoBehaviour
 {
-    void Start()
+    const string homeSceneKey = "Assets/Scenes/HomeScene.unity";
+    public void ClickedGoHome() => CheckDownload().Forget();
+
+    public void ClickedClearCache()
     {
+        var cleared = Caching.ClearCache();
+        Debug.Log($"Caching.ClearCache(): {cleared}");
+    }
+
+    private async UniTaskVoid CheckDownload()
+    {
+        var handle = Addressables.GetDownloadSizeAsync(homeSceneKey);
+        // LoadingProgress(handle);
         
+        var size = await handle.ToUniTask();
+        
+        Debug.Log($"GetDownloadSizeAsync: {size}");
+        var needDownload = size > 0;
+        if (needDownload)
+        {
+            await DownloadHomeAssets();
+        }
+        else
+        {
+            await LoadHomeScene();
+        }
     }
 
-    public void ClickedGoHome()
+    private async UniTask DownloadHomeAssets()
     {
-        var homeSceneKey = "Assets/Scenes/HomeScene.unity";
+        Debug.Log($"start loading home asset group");
+        var handle = Addressables.DownloadDependenciesAsync(homeSceneKey);
+        // LoadingProgress(handle).Forget();
+
+        await handle.ToUniTask();
+
+        await LoadHomeScene();
+    }
+
+    private async UniTask LoadHomeScene()
+    {
+        Debug.Log($"start loading home scene");
         var handle = Addressables.LoadSceneAsync(homeSceneKey);
-        StartCoroutine(nameof(LogProgress), handle);
-        handle.Completed += CompletedLoadScene;
+        // LoadingProgress(handle).Forget();
+
+        var sceneInstance = await handle.ToUniTask();
     }
 
-    private void CompletedLoadScene(AsyncOperationHandle<SceneInstance> handle)
-    {
-        if (handle.Status != AsyncOperationStatus.Succeeded)
-        {
-            // 실패인경우 OperationException : ChainOperation failed because dependent operation failed
-            Debug.Log(handle.OperationException);  
-        }
-    }
+    
 
-    IEnumerator LogProgress(AsyncOperationHandle<SceneInstance> handle)
+    async UniTaskVoid LoadingProgress(AsyncOperationHandle handle)
     {
-        while (handle.IsDone == false)
+        await UniTask.Run(async () =>
         {
-            Debug.Log($"home scene loading...{handle.GetDownloadStatus().Percent}");
-            yield return new WaitForSeconds(.1f);
-        }
+            while (handle.IsDone)
+            {
+                Debug.Log($"loading...{handle.GetDownloadStatus().Percent}");
+                await UniTask.Delay(100);
+            }
+        }, true, this.GetCancellationTokenOnDestroy());
     }
 }

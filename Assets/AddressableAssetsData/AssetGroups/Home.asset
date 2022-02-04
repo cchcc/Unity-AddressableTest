@@ -21,8 +21,8 @@ MonoBehaviour:
     m_Address: Assets/Scenes/HomeScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 929c71cf6596c45f6a692437b74c20ec
-    m_Address: Assets/Prefabs/HomeSphere.prefab
+  - m_GUID: eaa25b274576344aaba32d3c83e5d6c3
+    m_Address: Assets/Prefabs/Cube.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

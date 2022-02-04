@@ -93,3 +93,5 @@ Assets/StreamingAssets.meta
 
 Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values/crashlytics_build_id.xml
 Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values/crashlytics_build_id.xml.meta
+
+ServerData/*

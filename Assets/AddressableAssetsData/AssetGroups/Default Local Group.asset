@@ -37,6 +37,15 @@ MonoBehaviour:
     m_Address: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 8f586378b4e144a9851e7b34d9b748ee
+    m_Address: Fonts & Materials/LiberationSans SDF
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2e498d1c8094910479dc3e1b768306a4
+    m_Address: Assets/TextMesh Pro/Resources_moved/Fonts & Materials/LiberationSans
+      SDF - Fallback.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
   m_SchemaSet:

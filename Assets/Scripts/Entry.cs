@@ -6,12 +6,34 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class Entry : MonoBehaviour
 {
     const string homeSceneKey = "Assets/Scenes/HomeScene.unity";
+
+    public void ClickedCheckCatalog() => CheckCatalog().Forget();
     public void ClickedGoHome() => CheckDownload().Forget();
 
     public void ClickedClearCache()
     {
         var cleared = Caching.ClearCache();
         Debug.Log($"Caching.ClearCache(): {cleared}");
+    }
+
+    private async UniTaskVoid CheckCatalog()
+    {
+        var handle = Addressables.CheckForCatalogUpdates();
+
+        var list = await handle.ToUniTask();
+        if (list == null || list.Count == 0)
+        {
+            Debug.Log($"No Update");
+            return;
+        }
+
+        Debug.Log($"Start Update Catalog");
+
+        var updateHandle = Addressables.UpdateCatalogs(list);
+
+        await updateHandle.ToUniTask();
+        
+        Debug.Log($"Completed Update Catalog");
     }
 
     private async UniTaskVoid CheckDownload()
@@ -40,7 +62,8 @@ public class Entry : MonoBehaviour
         // LoadingProgress(handle).Forget();
 
         await handle.ToUniTask();
-
+        Addressables.Release(handle);
+        
         await LoadHomeScene();
     }
 
@@ -51,6 +74,7 @@ public class Entry : MonoBehaviour
         // LoadingProgress(handle).Forget();
 
         var sceneInstance = await handle.ToUniTask();
+        Addressables.Release(handle);
     }
 
     

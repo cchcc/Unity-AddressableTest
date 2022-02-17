@@ -10,14 +10,20 @@ public class Entry : MonoBehaviour
     public void ClickedCheckCatalog() => CheckCatalog().Forget();
     public void ClickedGoHome() => CheckDownload().Forget();
 
+    private AssetReference aa;
     public void ClickedClearCache()
     {
         var cleared = Caching.ClearCache();
         Debug.Log($"Caching.ClearCache(): {cleared}");
+        
+        
     }
 
     private async UniTaskVoid CheckCatalog()
     {
+        var a = await aa.LoadAssetAsync<GameObject>().ToUniTask();
+        Instantiate(a);
+        
         var handle = Addressables.CheckForCatalogUpdates();
 
         var list = await handle.ToUniTask();
@@ -39,7 +45,7 @@ public class Entry : MonoBehaviour
     private async UniTaskVoid CheckDownload()
     {
         var handle = Addressables.GetDownloadSizeAsync(homeSceneKey);
-        // LoadingProgress(handle);
+        // LoadingProgress(homeSceneKey, handle).Forget();
         
         var size = await handle.ToUniTask();
         
@@ -59,7 +65,7 @@ public class Entry : MonoBehaviour
     {
         Debug.Log($"start loading home asset group");
         var handle = Addressables.DownloadDependenciesAsync(homeSceneKey);
-        // LoadingProgress(handle).Forget();
+        LoadingProgress(homeSceneKey, handle).Forget();
 
         await handle.ToUniTask();
         Addressables.Release(handle);
@@ -71,7 +77,7 @@ public class Entry : MonoBehaviour
     {
         Debug.Log($"start loading home scene");
         var handle = Addressables.LoadSceneAsync(homeSceneKey);
-        // LoadingProgress(handle).Forget();
+        LoadingProgress(homeSceneKey, handle).Forget();
 
         var sceneInstance = await handle.ToUniTask();
         Addressables.Release(handle);
@@ -79,15 +85,13 @@ public class Entry : MonoBehaviour
 
     
 
-    async UniTaskVoid LoadingProgress(AsyncOperationHandle handle)
+    async UniTaskVoid LoadingProgress(string key, AsyncOperationHandle handle)
     {
-        await UniTask.Run(async () =>
+        Debug.Log($"start download: {key}");
+        while (!handle.IsDone)
         {
-            while (handle.IsDone)
-            {
-                Debug.Log($"loading...{handle.GetDownloadStatus().Percent}");
-                await UniTask.Delay(100);
-            }
-        }, true, this.GetCancellationTokenOnDestroy());
+            Debug.Log($"loading...{handle.GetDownloadStatus().Percent}");
+            await UniTask.Delay(100);
+        }
     }
 }

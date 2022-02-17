@@ -25,6 +25,14 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/ProfileCube.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 04d6e6f95f9d645c4ab82332f9a0fe2e
+    m_Address: Assets/Sprites/pexels-eberhard-grossgasteiger-691668.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 25d93ee256a2149dead74af094fb9c1b
+    m_Address: Assets/Sound/news.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
   m_SchemaSet:

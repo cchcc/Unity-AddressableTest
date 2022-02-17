@@ -45,6 +45,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2ae2bbf88458421783cf4e3a4a19629, type: 2}
   - {fileID: 11400000, guid: 8f84c6333e3244dcf8ad020b341dc1c0, type: 2}
   - {fileID: 11400000, guid: f4616eeb7956b49aca286072aa3f65c0, type: 2}
+  - {fileID: 11400000, guid: 5e57e5f8074bc4cc0807f8cbb04348d8, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -69,6 +70,20 @@ MonoBehaviour:
     - m_InheritedParent: 
       m_Id: c75edc583f26e46a3982b03014c5bb78
       m_ProfileName: Editor Hosting
+      m_Values:
+      - m_Id: 77841b90fd11f4e019f34dba8446c712
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 0961833e7d13a4231b4de2b5986768cd
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: bbeda1d884b8b4d6fbc7d28cc418e5f5
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 8ec7b9e9ba0f54eb48366c241e4619db
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: b5dec19f065ce4eb6a5829d5a7adf7d9
+        m_Value: http://192.168.0.18:8000/
+    - m_InheritedParent: 
+      m_Id: 2431a52cd73024f08a72654882a6afc9
+      m_ProfileName: AWS
       m_Values:
       - m_Id: 77841b90fd11f4e019f34dba8446c712
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
@@ -132,7 +147,7 @@ MonoBehaviour:
           m_Key: HostingServiceUploadSpeed
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String
-          m_Data: Library/com.unity.addressables/aa/iOS/iOS;ServerData/iOS
+          m_Data: Library/com.unity.addressables/aa/Android/Android;ServerData/Android
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean

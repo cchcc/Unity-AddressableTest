@@ -25,6 +25,14 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Cube.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: bb61ab44175464a0495b105645915629
+    m_Address: Assets/Sound/rainASMR.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40e5f855cede349b19ce607c2e7df5b9
+    m_Address: Assets/Prefabs/Capsule.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
   m_SchemaSet:

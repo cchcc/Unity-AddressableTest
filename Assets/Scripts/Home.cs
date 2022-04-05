@@ -8,10 +8,12 @@ public class Home : MonoBehaviour
 {
     public void ClickedProfile()
     {
-        var profileSceneKey = "Assets/Scenes/ProfileScene.unity";
-        var handle = Addressables.LoadSceneAsync(profileSceneKey);
+        var key = "Assets/Scenes/ProfileScene.unity";
+        Debug.Log($"LoadScene: {key}");
+        var handle = Addressables.LoadSceneAsync(key);
+        Utils.LoadingProgress(handle).Forget();
         handle.Completed += CompletedLoadScene;
-        LoadingProgress(profileSceneKey, handle).Forget();
+        LoadingProgress(key, handle).Forget();
     }
 
     private void CompletedLoadScene(AsyncOperationHandle<SceneInstance> handle)

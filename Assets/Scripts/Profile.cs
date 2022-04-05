@@ -7,8 +7,10 @@ public class Profile : MonoBehaviour
 {
     public void ClickedBack()
     {
-        var profileSceneKey = "Assets/Scenes/HomeScene.unity";
-        var handle = Addressables.LoadSceneAsync(profileSceneKey);
+        var key = "Assets/Scenes/HomeScene.unity";
+        Debug.Log($"LoadScene: {key}");
+        var handle = Addressables.LoadSceneAsync(key);
+        Utils.LoadingProgress(handle).Forget();
         handle.Completed += CompletedLoadScene;
     }
 

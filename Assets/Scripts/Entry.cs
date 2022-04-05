@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Entry : MonoBehaviour
 {
@@ -45,10 +44,7 @@ public class Entry : MonoBehaviour
     private async UniTaskVoid CheckDownload()
     {
         var handle = Addressables.GetDownloadSizeAsync(homeSceneKey);
-        // LoadingProgress(homeSceneKey, handle).Forget();
-        
         var size = await handle.ToUniTask();
-        
         Debug.Log($"GetDownloadSizeAsync: {size}");
         var needDownload = size > 0;
         if (needDownload)
@@ -65,33 +61,25 @@ public class Entry : MonoBehaviour
     {
         Debug.Log($"start loading home asset group");
         var handle = Addressables.DownloadDependenciesAsync(homeSceneKey);
-        LoadingProgress(homeSceneKey, handle).Forget();
+        Utils.LoadingProgress(handle).Forget();
 
         await handle.ToUniTask();
-        Addressables.Release(handle);
+        // Addressables.Release(handle);
         
         await LoadHomeScene();
     }
 
     private async UniTask LoadHomeScene()
     {
-        Debug.Log($"start loading home scene");
+        Debug.Log($"LoadScene: {homeSceneKey}");
         var handle = Addressables.LoadSceneAsync(homeSceneKey);
-        LoadingProgress(homeSceneKey, handle).Forget();
+        Utils.LoadingProgress(handle).Forget();
 
         var sceneInstance = await handle.ToUniTask();
-        Addressables.Release(handle);
+        // Addressables.Release(handle);
     }
 
     
 
-    async UniTaskVoid LoadingProgress(string key, AsyncOperationHandle handle)
-    {
-        Debug.Log($"start download: {key}");
-        while (!handle.IsDone)
-        {
-            Debug.Log($"loading...{handle.GetDownloadStatus().Percent}");
-            await UniTask.Delay(100);
-        }
-    }
+    
 }

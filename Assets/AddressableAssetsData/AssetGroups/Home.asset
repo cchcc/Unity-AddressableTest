@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Capsule.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 4dccf4ae77453456b9a216dde1124a3c
+    m_Address: Assets/Sprites/icons
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
   m_SchemaSet:

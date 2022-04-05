@@ -17,13 +17,60 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6b07bcceacc9744cfa30b7b7688afe60
   m_SerializeEntries:
-  - m_GUID: 8f586378b4e144a9851e7b34d9b748ee
-    m_Address: Assets/TextMesh Pro/Resources_moved/Fonts & Materials/LiberationSans
-      SDF.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 31321ba15b8f8eb4c954353edc038b1d
     m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 933532a4fcc9baf4fa0491de14d08ed7
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 594ea882c5a793440b60ff72d896021e
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/TerrainLit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a1143ee683302f4aa628c052723efc1
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SimpleLit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b51db210fe78df745a372851b3db949e
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpatialMappingOcclusion.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9875a245ac49007498213638a307faa1
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpatialMappingWireframe.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a97c105638bdf8b4a8650670310a4cd3
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Lit-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9dfc825aed78fcd4ba02077103263b40
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 15d0c3709176029428a0da2f8cecf0b5
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SpriteMask-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e823cd5b5d27c0f4b8256e7c12ee3e6d
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/ParticlesUnlit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 31d0dcc6f2dd4e4408d18036a2c93862
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Decal.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 44245ab89240f51459a5077d7145c452
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/PhysicalMaterial3DsMax/PhysicalMaterial3DsMax.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a207e3bee00db44b940e6f362a8e148
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/PhysicalMaterial3DsMax/PhysicalMaterial3DsMaxTransparent.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e3265ab4bf004d28a9537516768c1c75
+    m_Address: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

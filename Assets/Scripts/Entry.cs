@@ -1,10 +1,44 @@
+using System.Linq;
 using Cysharp.Threading.Tasks;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
+using Unity.Services.Core.Environments;
+using Unity.Services.RemoteConfig;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 public class Entry : MonoBehaviour
 {
     const string homeSceneKey = "Assets/Scenes/HomeScene.unity";
+
+    async void Awake()
+    {
+        var options = new InitializationOptions();
+        options.SetEnvironmentName("dev");
+        await UnityServices.InitializeAsync(options);
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        
+        await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
+    }
+    
+    public struct UserAttributes
+    {
+    }
+    public struct AppAttributes
+    {
+    }
+
+    private async UniTaskVoid InitUGS()
+    {
+        var options = new InitializationOptions();
+        options.SetEnvironmentName("dev");
+        await UnityServices.InitializeAsync(options);
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        
+        await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
+    }
 
     public void ClickedCheckCatalog() => CheckCatalog().Forget();
     public void ClickedGoHome() => CheckDownload().Forget();
@@ -14,31 +48,24 @@ public class Entry : MonoBehaviour
     {
         var cleared = Caching.ClearCache();
         Debug.Log($"Caching.ClearCache(): {cleared}");
-        
-        
     }
 
     private async UniTaskVoid CheckCatalog()
     {
-        var a = await aa.LoadAssetAsync<GameObject>().ToUniTask();
-        Instantiate(a);
+        var catalogKey = Application.platform == RuntimePlatform.Android ? "CATALOG_Android" : "CATALOG_iOS";
         
-        var handle = Addressables.CheckForCatalogUpdates();
+        var catalogPath = RemoteConfigService.Instance.appConfig.GetString(catalogKey);
+        Debug.Log($"Path from remote config: {catalogPath}");
+        var locator = await Addressables.LoadContentCatalogAsync(catalogPath);
+        Debug.Log($"LoadContentCatalogAsync : {locator.Keys.Count()}");
+        var catalogIds = await Addressables.CheckForCatalogUpdates();
+        Debug.Log($"CheckForCatalogUpdates : {catalogIds.Count}");
 
-        var list = await handle.ToUniTask();
-        if (list == null || list.Count == 0)
+        if (catalogIds is {Count: > 0})
         {
-            Debug.Log($"No Update");
-            return;
+            await Addressables.UpdateCatalogs(catalogIds);
+            Debug.Log($"UpdateCatalogs : {catalogIds.Count}");
         }
-
-        Debug.Log($"Start Update Catalog");
-
-        var updateHandle = Addressables.UpdateCatalogs(list);
-
-        await updateHandle.ToUniTask();
-        
-        Debug.Log($"Completed Update Catalog");
     }
 
     private async UniTaskVoid CheckDownload()
@@ -61,11 +88,8 @@ public class Entry : MonoBehaviour
     {
         Debug.Log($"start loading home asset group");
         var handle = Addressables.DownloadDependenciesAsync(homeSceneKey);
-        Utils.LoadingProgress(handle).Forget();
-
+        Utils.LogDownloadProgress(handle).Forget();
         await handle.ToUniTask();
-        // Addressables.Release(handle);
-        
         await LoadHomeScene();
     }
 
@@ -73,10 +97,9 @@ public class Entry : MonoBehaviour
     {
         Debug.Log($"LoadScene: {homeSceneKey}");
         var handle = Addressables.LoadSceneAsync(homeSceneKey);
-        Utils.LoadingProgress(handle).Forget();
+        Utils.LogLoad(handle).Forget();
 
         var sceneInstance = await handle.ToUniTask();
-        // Addressables.Release(handle);
     }
 
     

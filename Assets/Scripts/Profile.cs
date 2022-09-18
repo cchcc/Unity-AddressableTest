@@ -10,7 +10,7 @@ public class Profile : MonoBehaviour
         var key = "Assets/Scenes/HomeScene.unity";
         Debug.Log($"LoadScene: {key}");
         var handle = Addressables.LoadSceneAsync(key);
-        Utils.LoadingProgress(handle).Forget();
+        Utils.LogDownloadProgress(handle).Forget();
         handle.Completed += CompletedLoadScene;
     }
 

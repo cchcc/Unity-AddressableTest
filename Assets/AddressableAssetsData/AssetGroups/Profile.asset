@@ -21,34 +21,37 @@ MonoBehaviour:
     m_Address: Assets/Scenes/ProfileScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f8c3cb07c02441d3ad81fd57aa518b0
     m_Address: Assets/Prefabs/ProfileCube.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04d6e6f95f9d645c4ab82332f9a0fe2e
     m_Address: Assets/Sprites/pexels-eberhard-grossgasteiger-691668.jpeg
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 25d93ee256a2149dead74af094fb9c1b
-    m_Address: Assets/Sound/news.mp3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e05f1d65f1dc4d049fe7b60883f24b3
     m_Address: Assets/Sprites/icons2/ic_google.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db8931baadf3a4f23b8891e1c415ee1d
     m_Address: Assets/Sprites/icons2/icon_like_fill.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07f2abdd3da7646ce82973c55c3ed629
     m_Address: Assets/Sprites/icons2
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39e318864ff7244de94bed5558b16033
     m_Address: Assets/Sprites/icons2/ic_facebook.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
   m_SchemaSet:

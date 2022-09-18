@@ -11,9 +11,9 @@ public class Home : MonoBehaviour
         var key = "Assets/Scenes/ProfileScene.unity";
         Debug.Log($"LoadScene: {key}");
         var handle = Addressables.LoadSceneAsync(key);
-        Utils.LoadingProgress(handle).Forget();
+        Utils.LogDownloadProgress(handle).Forget();
         handle.Completed += CompletedLoadScene;
-        LoadingProgress(key, handle).Forget();
+        Utils.LogLoad(handle).Forget();
     }
 
     private void CompletedLoadScene(AsyncOperationHandle<SceneInstance> handle)
@@ -23,21 +23,5 @@ public class Home : MonoBehaviour
             // 실패인경우 OperationException : ChainOperation failed because dependent operation failed
             Debug.Log(handle.OperationException);  
         }
-    }
-    
-    
-    
-    async UniTaskVoid LoadingProgress(string key, AsyncOperationHandle handle)
-    {
-        
-        // await UniTask.Run(async () =>
-        // {
-            Debug.Log($"start download: {key}");
-            while (!handle.IsDone)
-            {
-                Debug.Log($"loading...{handle.GetDownloadStatus().Percent}");
-                await UniTask.Delay(100);
-            }
-        // }, true, this.GetCancellationTokenOnDestroy());
     }
 }

@@ -21,22 +21,37 @@ MonoBehaviour:
     m_Address: Assets/Scenes/HomeScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eaa25b274576344aaba32d3c83e5d6c3
     m_Address: Assets/Prefabs/Cube.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: bb61ab44175464a0495b105645915629
-    m_Address: Assets/Sound/rainASMR.mp3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40e5f855cede349b19ce607c2e7df5b9
     m_Address: Assets/Prefabs/Capsule.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4dccf4ae77453456b9a216dde1124a3c
     m_Address: Assets/Sprites/icons
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3a0d8ae1976e425b8cfbb5a73a10c67
+    m_Address: Assets/Prefabs/Cylinder.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25d93ee256a2149dead74af094fb9c1b
+    m_Address: Assets/Sound/news.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90eba32dd1d994125afa6c70fb9343ff
+    m_Address: Assets/Sound/BLACKPINK.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8b92ddcc6c33740808d4089cb90295bc, type: 2}
   m_SchemaSet:
